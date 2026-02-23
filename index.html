@@ -20,24 +20,23 @@
            1. REFINED COLOR PALETTE
         ============================================ */
         :root {
-            --primary-dark: #1A2E44;
-            /* Deep Navy */
-            --primary-dark-80: rgba(26, 46, 68, 0.9);
-            --primary-dark-40: rgba(26, 46, 68, 0.4);
+            --primary-dark: #111111;
+            /* Near-black (replaces navy) */
+            --primary-dark-80: rgba(17, 17, 17, 0.9);
+            --primary-dark-40: rgba(17, 17, 17, 0.4);
             --accent: #D32F2F;
-            /* Professional Brick Red */
+            /* Brick Red */
             --accent-hover: #b71c1c;
             --accent-shadow: rgba(211, 47, 47, 0.3);
-            --gray-bg: #F4F7F6;
-            /* Soft cool gray */
-            --dark-text: #444444;
-            /* Body text */
+            --gray-bg: #1a1a1a;
+            /* Dark background for portfolio section */
+            --dark-text: #cccccc;
             --primary-white: #ffffff;
             --primary-black: #000000;
             --dark-gray: #1a1a1a;
             --medium-gray: #2a2a2a;
             --light-gray: #555555;
-            --card-border: #eaeaea;
+            --card-border: #333333;
         }
 
         /* ============================================
@@ -72,7 +71,7 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(26, 46, 68, 0.4);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .header-container {
@@ -196,9 +195,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to right,
-                    rgba(26, 46, 68, 0.92) 0%,
-                    rgba(26, 46, 68, 0.65) 55%,
-                    rgba(26, 46, 68, 0.20) 100%);
+                    rgba(0, 0, 0, 0.92) 0%,
+                    rgba(0, 0, 0, 0.65) 55%,
+                    rgba(0, 0, 0, 0.20) 100%);
             z-index: 2;
             display: flex;
             flex-direction: column;
@@ -468,12 +467,12 @@
            (new section after Services, on Home page)
         ============================================ */
         .portfolio-section {
-            background-color: var(--gray-bg);
+            background-color: #111111;
             padding: 5rem 5%;
         }
 
         .portfolio-section .section-title h2 {
-            color: var(--primary-dark);
+            color: var(--primary-white);
         }
 
         .portfolio-grid {
@@ -525,7 +524,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(26, 46, 68, 0.88) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, transparent 100%);
             color: #fff;
             padding: 1.2rem 1rem 0.8rem;
             font-size: 0.95rem;
@@ -875,7 +874,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary-dark);
+                background-color: #111111;
                 flex-direction: column;
                 padding: 1rem 0;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -1110,7 +1109,7 @@
                 </div>
                 <div class="text-center" style="margin-top: 2.5rem;">
                     <a class="cta-button nav-link" data-page="projects"
-                        style="background-color: var(--primary-dark); color: #fff;">View All Projects</a>
+                        style="background-color: #111111; color: #fff;">View All Projects</a>
                 </div>
             </section>
         </div>
