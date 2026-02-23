@@ -4,29 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revolution Maintenance & Construction</title>
+    <title>Revolution Maintenance &amp; Construction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* ============================================
+           1. REFINED COLOR PALETTE
+        ============================================ */
         :root {
-            --primary-red: hsl(0, 100%, 50%);
-            --primary-white: #ffffff;
-            --primary-black: #000000;
-            --dark-gray: #1a1a1a;
-            --medium-gray: #333333;
-            --light-gray: #555555;
+            --primary-dark:   #1A2E44;   /* Deep Navy */
+            --primary-dark-80: rgba(26, 46, 68, 0.9);
+            --primary-dark-40: rgba(26, 46, 68, 0.4);
+            --accent:         #D32F2F;   /* Professional Brick Red */
+            --accent-hover:   #b71c1c;
+            --accent-shadow:  rgba(211, 47, 47, 0.3);
+            --gray-bg:        #F4F7F6;   /* Soft cool gray */
+            --dark-text:      #444444;   /* Body text */
+            --primary-white:  #ffffff;
+            --primary-black:  #000000;
+            --dark-gray:      #1a1a1a;
+            --medium-gray:    #2a2a2a;
+            --light-gray:     #555555;
+            --card-border:    #eaeaea;
+        }
+
+        /* ============================================
+           7. TYPOGRAPHY ADJUSTMENTS
+        ============================================ */
+        h2 {
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         body {
             background-color: var(--primary-black);
-            color: var(--primary-white);
+            color: var(--dark-text);
             overflow-x: hidden;
         }
 
@@ -40,13 +60,15 @@
             display: block;
         }
 
-        /* Header Styles */
+        /* ============================================
+           HEADER
+        ============================================ */
         header {
-            background-color: var(--primary-black);
+            background-color: var(--primary-dark);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(255, 0, 54, 0.1);
+            box-shadow: 0 2px 10px rgba(26, 46, 68, 0.4);
         }
 
         .header-container {
@@ -63,10 +85,12 @@
             align-items: center;
         }
 
+        /* 2. IMPROVED LOGO: no box, no border-radius, no shadow */
         .logo-img {
-            height: 50px;
+            height: 55px;
             width: auto;
             margin-right: 10px;
+            /* Removed: background, border-radius, box-shadow */
         }
 
         .logo-text {
@@ -77,7 +101,7 @@
         }
 
         .logo-text span {
-            color: var(--primary-red);
+            color: var(--accent);
         }
 
         nav ul {
@@ -99,7 +123,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--primary-red);
+            color: var(--accent);
         }
 
         nav ul li a::after {
@@ -109,7 +133,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             transition: width 0.3s;
         }
 
@@ -126,7 +150,9 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* ============================================
+           3. MODERNIZED HERO SECTION — Left-aligned
+        ============================================ */
         .hero {
             height: 100vh;
             position: relative;
@@ -158,62 +184,79 @@
             opacity: 1;
         }
 
+        /* Left-to-right gradient overlay */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: linear-gradient(
+                to right,
+                rgba(26, 46, 68, 0.92) 0%,
+                rgba(26, 46, 68, 0.65) 55%,
+                rgba(26, 46, 68, 0.20) 100%
+            );
             z-index: 2;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
+            align-items: flex-start;   /* left-aligned */
+            text-align: left;
+            padding: 0 8%;
+        }
+
+        .hero-content {
+            max-width: 620px;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            color: var(--primary-white);
             animation: fadeInUp 1s ease-out;
+            line-height: 1.15;
         }
 
         .hero h1 span {
-            color: var(--primary-red);
+            color: var(--accent);
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
+            font-size: 1.2rem;
+            margin-bottom: 2.2rem;
+            color: rgba(255,255,255,0.88);
             animation: fadeInUp 1s ease-out 0.3s both;
+            line-height: 1.7;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             color: var(--primary-white);
             padding: 1rem 2.5rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.3s;
             animation: fadeInUp 1s ease-out 0.6s both;
             cursor: pointer;
+            border: none;
         }
 
         .cta-button:hover {
-            background-color: #cc002b;
+            background-color: var(--accent-hover);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 0, 54, 0.3);
+            box-shadow: 0 10px 20px var(--accent-shadow);
         }
 
-        /* Section Styles */
+        /* ============================================
+           SECTION STYLES
+        ============================================ */
         section {
             padding: 5rem 5%;
             max-width: 1400px;
@@ -238,12 +281,19 @@
             position: absolute;
             width: 70%;
             height: 3px;
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             bottom: -10px;
             left: 15%;
         }
 
-        /* About Section */
+        /* Light background sections override text color */
+        .section-light .section-title h2 {
+            color: var(--primary-dark);
+        }
+
+        /* ============================================
+           ABOUT SECTION
+        ============================================ */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -254,7 +304,7 @@
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-red);
+            color: var(--accent);
         }
 
         .about-text p {
@@ -281,7 +331,9 @@
             transform: scale(1.05);
         }
 
-        /* Services Section */
+        /* ============================================
+           SERVICES SECTION
+        ============================================ */
         .services {
             background-color: var(--dark-gray);
         }
@@ -292,21 +344,50 @@
             gap: 2rem;
         }
 
+        /* 4. ENHANCED SERVICE CARDS */
         .service-card {
             background-color: var(--medium-gray);
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Softened shadow + subtle border */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255,255,255,0.07);
         }
 
+        /* Slide-up hover (no image zoom) */
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 0, 54, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Animated underline on card title */
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-white);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.35s ease;
+        }
+
+        .service-card:hover .service-content h3::after {
+            width: 100%;
         }
 
         .service-icon {
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             height: 80px;
             display: flex;
             justify-content: center;
@@ -322,12 +403,6 @@
             padding: 1.5rem;
         }
 
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-white);
-        }
-
         .service-content p {
             color: #cccccc;
             line-height: 1.6;
@@ -340,6 +415,8 @@
         .other-services h3 {
             text-align: center;
             font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             margin-bottom: 2rem;
             color: var(--primary-white);
             position: relative;
@@ -350,7 +427,7 @@
             position: absolute;
             width: 50%;
             height: 3px;
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             bottom: -10px;
             left: 25%;
         }
@@ -364,6 +441,7 @@
 
         .custom-projects h3 {
             font-size: 1.8rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             color: var(--primary-white);
         }
@@ -376,14 +454,90 @@
             margin-right: auto;
         }
 
-        /* Text Center Class */
         .text-center {
             text-align: center;
             margin-top: 3rem;
             padding-top: 1rem;
         }
 
-        /* Projects Section */
+        /* ============================================
+           6. PORTFOLIO / PROJECTS GALLERY SECTION
+           (new section after Services, on Home page)
+        ============================================ */
+        .portfolio-section {
+            background-color: var(--gray-bg);
+            padding: 5rem 5%;
+        }
+
+        .portfolio-section .section-title h2 {
+            color: var(--primary-dark);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 1rem;
+        }
+
+        /* Masonry-style spanning */
+        .portfolio-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transition: transform 0.35s, box-shadow 0.35s;
+            background: #ddd;
+        }
+
+        .portfolio-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .portfolio-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            min-height: 220px;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.20);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,46,68,0.88) 0%, transparent 100%);
+            color: #fff;
+            padding: 1.2rem 1rem 0.8rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-item-overlay {
+            opacity: 1;
+        }
+
+        /* ============================================
+           PROJECTS PAGE GRID
+        ============================================ */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -409,12 +563,13 @@
             transform: scale(1.1);
         }
 
-        /* Removed the project overlay as requested */
         .project-overlay {
             display: none;
         }
 
-        /* Contact Section */
+        /* ============================================
+           CONTACT SECTION
+        ============================================ */
         .contact {
             background-color: var(--dark-gray);
         }
@@ -428,7 +583,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-red);
+            color: var(--accent);
         }
 
         .contact-details {
@@ -443,7 +598,7 @@
 
         .contact-item i {
             font-size: 1.2rem;
-            color: var(--primary-red);
+            color: var(--accent);
             margin-right: 1rem;
             margin-top: 0.2rem;
         }
@@ -471,7 +626,7 @@
         }
 
         .social-links a:hover {
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             transform: translateY(-3px);
         }
 
@@ -508,11 +663,11 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--primary-red);
+            border-color: var(--accent);
         }
 
         .submit-btn {
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             color: var(--primary-white);
             border: none;
             padding: 1rem 2rem;
@@ -525,12 +680,14 @@
         }
 
         .submit-btn:hover {
-            background-color: #cc002b;
+            background-color: var(--accent-hover);
         }
 
-        /* Footer */
+        /* ============================================
+           FOOTER
+        ============================================ */
         footer {
-            background-color: var(--primary-black);
+            background-color: var(--primary-dark);
             padding: 3rem 5% 1rem;
             text-align: center;
         }
@@ -557,7 +714,7 @@
             position: absolute;
             width: 50%;
             height: 2px;
-            background-color: var(--primary-red);
+            background-color: var(--accent);
             bottom: -5px;
             left: 0;
         }
@@ -573,32 +730,87 @@
         }
 
         .footer-column a:hover {
-            color: var(--primary-red);
+            color: var(--accent);
         }
 
         .copyright {
             padding-top: 1.5rem;
-            border-top: 1px solid var(--light-gray);
+            border-top: 1px solid rgba(255,255,255,0.12);
             color: #cccccc;
             font-size: 0.9rem;
         }
 
-        /* Animations */
+        /* ============================================
+           8. FLOATING WHATSAPP BUTTON
+        ============================================ */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background-color: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fabPulse 2.5s ease-in-out infinite;
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.12) translateY(-3px);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        .whatsapp-fab .fab-tooltip {
+            position: absolute;
+            right: 68px;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+
+        .whatsapp-fab:hover .fab-tooltip {
+            opacity: 1;
+        }
+
+        @keyframes fabPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45); }
+            50%       { box-shadow: 0 4px 32px rgba(37, 211, 102, 0.75); }
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Responsive Styles */
+        /* ============================================
+           RESPONSIVE STYLES
+        ============================================ */
         @media (max-width: 992px) {
-
             .about-content,
             .contact-container {
                 grid-template-columns: 1fr;
@@ -609,7 +821,20 @@
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .portfolio-item:nth-child(4) {
+                grid-column: span 1;
             }
         }
 
@@ -620,7 +845,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--dark-gray);
+                background-color: var(--primary-dark);
                 flex-direction: column;
                 padding: 1rem 0;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -641,7 +866,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.4rem;
             }
 
             .hero p {
@@ -650,6 +875,19 @@
 
             .section-title h2 {
                 font-size: 2rem;
+            }
+
+            .hero-overlay {
+                padding: 0 6%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item:nth-child(1),
+            .portfolio-item:nth-child(4) {
+                grid-column: span 1;
             }
         }
 
@@ -674,6 +912,14 @@
             .logo-text {
                 font-size: 1.2rem;
             }
+
+            .whatsapp-fab {
+                bottom: 20px;
+                right: 20px;
+                width: 52px;
+                height: 52px;
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -683,9 +929,9 @@
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <!-- Logo image -->
+                <!-- Logo image — no box, no border-radius, no shadow -->
                 <img src="https://github.com/Mohammed-fom/Revolution/blob/main/Logo.png?raw=true"
-                    alt="Revolution Maintenance & Construction" class="logo-img">
+                    alt="Revolution Maintenance &amp; Construction" class="logo-img">
             </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -702,9 +948,16 @@
         </div>
     </header>
 
-    <!-- Home Page -->
+    <!-- 8. FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/27836996971" target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <span class="fab-tooltip">Chat on WhatsApp</span>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ==================== HOME PAGE ==================== -->
     <div id="home" class="page active">
-        <!-- Hero Section -->
+
+        <!-- 3. MODERNIZED HERO — Left-aligned with gradient overlay -->
         <section class="hero">
             <div class="slideshow">
                 <div class="slide active"
@@ -718,9 +971,11 @@
                 </div>
             </div>
             <div class="hero-overlay">
-                <h1>Revolution <span>Roofing & Construction</span></h1>
-                <p>Building the future with precision, quality, and innovation. Your vision, our expertise.</p>
-                <a class="cta-button nav-link" data-page="contact">Get a Free Quote</a>
+                <div class="hero-content">
+                    <h1>Revolution <span>Roofing &amp; Construction</span></h1>
+                    <p>Building the future with precision, quality, and innovation. Your vision, our expertise.</p>
+                    <a class="cta-button nav-link" data-page="contact">Get a Free Quote</a>
+                </div>
             </div>
         </section>
 
@@ -732,7 +987,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Building Excellence Since 2010</h3>
-                    <p>Revolution Roofing & Projects is a premier construction company dedicated to delivering
+                    <p>Revolution Roofing &amp; Projects is a premier construction company dedicated to delivering
                         exceptional quality and innovative solutions for both residential and commercial projects.</p>
                     <p>With over a decade of experience in the industry, we have built a reputation for reliability,
                         precision, and attention to detail.</p>
@@ -786,9 +1041,44 @@
                 <a class="cta-button nav-link" data-page="services">View All Services</a>
             </div>
         </section>
-    </div>
 
-    <!-- About Page -->
+        <!-- 6. PORTFOLIO / PROJECTS GALLERY SECTION (new, after Services) -->
+        <div class="portfolio-section">
+            <section style="padding: 0; max-width: 1400px; margin: 0 auto;">
+                <div class="section-title">
+                    <h2>Our Portfolio</h2>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Roofing Project">
+                        <div class="portfolio-item-overlay">Roofing — Secunda</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="Construction Project">
+                        <div class="portfolio-item-overlay">Commercial Build</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Paving Project">
+                        <div class="portfolio-item-overlay">Paving &amp; Driveways</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=80" alt="Residential Build">
+                        <div class="portfolio-item-overlay">Residential Build</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Interior Renovation">
+                        <div class="portfolio-item-overlay">Interior Renovation</div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2.5rem;">
+                    <a class="cta-button nav-link" data-page="projects" style="background-color: var(--primary-dark); color: #fff;">View All Projects</a>
+                </div>
+            </section>
+        </div>
+
+    </div><!-- /.home page -->
+
+    <!-- ==================== ABOUT PAGE ==================== -->
     <div id="about" class="page">
         <section class="about" style="padding-top: 8rem;">
             <div class="section-title">
@@ -797,7 +1087,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Building Excellence Since 2010</h3>
-                    <p>Revolution Roofing & Construction is a premier construction company dedicated to delivering
+                    <p>Revolution Roofing &amp; Construction is a premier construction company dedicated to delivering
                         exceptional quality and innovative solutions for both residential and commercial projects.</p>
                     <p>With over a decade of experience in the industry, we have built a reputation for reliability,
                         precision, and attention to detail. Our team of skilled professionals is committed to
@@ -858,7 +1148,7 @@
         </section>
     </div>
 
-    <!-- Services Page -->
+    <!-- ==================== SERVICES PAGE ==================== -->
     <div id="services" class="page">
         <section class="services" style="padding-top: 8rem;">
             <div class="section-title">
@@ -913,7 +1203,7 @@
                         <i class="fas fa-tools"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Plumbing & Electrical</h3>
+                        <h3>Plumbing &amp; Electrical</h3>
                         <p>Professional plumbing and electrical services including installation, repair, and
                             maintenance. Our certified technicians ensure all work meets safety standards and building
                             codes.</p>
@@ -982,7 +1272,7 @@
         </section>
     </div>
 
-    <!-- Projects Page -->
+    <!-- ==================== PROJECTS PAGE ==================== -->
     <div id="projects" class="page">
         <section class="projects" style="padding-top: 8rem;">
             <div class="section-title">
@@ -996,33 +1286,28 @@
                 <div class="project-card">
                     <img src="https://urbanistarchitecture.co.uk/media/pages/blog/cost-to-build-a-house-uk/11d4f86324-1679668560/01-cost-to-build-a-house-1024x.jpg"
                         alt="Office Building">
-
                 </div>
                 <div class="project-card">
                     <img src="https://www.decorilla.com/online-decorating/wp-content/uploads/2024/01/Modern-rustic-living-room-by-Decorilla-scaled.jpeg"
                         alt="Interior Design">
-
                 </div>
                 <div class="project-card">
                     <img src="https://slavinhi.com/wp-content/uploads/2018/03/how-to-choose-a-roofing-contractor.jpg"
                         alt="House Construction">
-
                 </div>
                 <div class="project-card">
                     <img src="https://images.squarespace-cdn.com/content/v1/595cf3072994ca8947944b3f/52d1ac6c-3eac-475a-896d-dd6115ab8172/Roof+Design+Ideas.png"
-                        alt="Kitchen Renovation">
-
+                        alt="Roof Design">
                 </div>
                 <div class="project-card">
                     <img src="https://www.wellscustomframers.com/images/jch-optimize/ng/images_new-home-construction.webp"
-                        alt="Bathroom Renovation">
-
+                        alt="New Home Construction">
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Contact Page -->
+    <!-- ==================== CONTACT PAGE ==================== -->
     <div id="contact" class="page">
         <section class="contact" style="padding-top: 8rem;">
             <div class="section-title">
@@ -1046,7 +1331,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
-                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br></p>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
                         </div>
                     </div>
                     <h3>Follow Us</h3>
@@ -1054,10 +1339,6 @@
                         <a href="https://www.facebook.com/share/17TG1HrPSX/?mibextid=wwXIfr" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-
-                        <!-- <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     </div>
                 </div>
                 <div class="contact-form">
@@ -1082,7 +1363,7 @@
                                 <option value="commercial">Commercial Construction</option>
                                 <option value="residential">Residential Construction</option>
                                 <option value="interior">Home Interior</option>
-                                <option value="plumbing">Plumbing & Electric</option>
+                                <option value="plumbing">Plumbing &amp; Electric</option>
                                 <option value="paving">Paving</option>
                                 <option value="painting">Painting</option>
                                 <option value="management">Other Services</option>
@@ -1104,7 +1385,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Revolution Roofing & Projects</h3>
+                <h3>Revolution Roofing &amp; Projects</h3>
                 <p>Building the future with precision, quality, and innovation. Your vision, our expertise.</p>
             </div>
             <div class="footer-column">
@@ -1121,7 +1402,7 @@
                 <a class="nav-link" data-page="services">Commercial Construction</a>
                 <a class="nav-link" data-page="services">Residential Construction</a>
                 <a class="nav-link" data-page="services">Home Interior</a>
-                <a class="nav-link" data-page="services">Plumbing & Electric</a>
+                <a class="nav-link" data-page="services">Plumbing &amp; Electric</a>
             </div>
             <div class="footer-column">
                 <h3>Contact Info</h3>
@@ -1131,35 +1412,64 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 Revolution Maintenance & Construction. All Rights Reserved. Proundly Brought To You By Malek
-                Enterprise</p>
+            <p>&copy; 2025 Revolution Maintenance &amp; Construction. All Rights Reserved. Proudly Brought To You By Malek Enterprise</p>
         </div>
     </footer>
 
     <script>
-        // Multi-page Navigation
+        // ============================================================
+        // 5. URL HASH ROUTING
+        // ============================================================
+        const VALID_PAGES = ['home', 'about', 'services', 'projects', 'contact'];
+
+        function navigateTo(pageId) {
+            const target = VALID_PAGES.includes(pageId) ? pageId : 'home';
+
+            // Update URL hash without triggering a page scroll
+            history.pushState(null, '', '#' + target);
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show target page
+            const targetEl = document.getElementById(target);
+            if (targetEl) targetEl.classList.add('active');
+
+            // Close mobile menu if open
+            document.querySelector('nav ul').classList.remove('active');
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Read hash on page load (supports refresh)
+        function loadPageFromHash() {
+            const hash = window.location.hash.replace('#', '').trim();
+            navigateTo(hash || 'home');
+        }
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', () => {
+            loadPageFromHash();
+        });
+
+        // Nav link clicks (all .nav-link elements)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetPage = this.getAttribute('data-page');
-
-                // Hide all pages
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-
-                // Show target page
-                document.getElementById(targetPage).classList.add('active');
-
-                // Close mobile menu if open
-                document.querySelector('nav ul').classList.remove('active');
-
-                // Scroll to top
-                window.scrollTo(0, 0);
+                if (targetPage) navigateTo(targetPage);
             });
         });
 
-        // Mobile Menu Toggle
+        // On initial load
+        loadPageFromHash();
+
+        // ============================================================
+        // MOBILE MENU TOGGLE
+        // ============================================================
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('nav ul');
 
@@ -1167,14 +1477,9 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Slideshow Functionality
+        // ============================================================
+        // SLIDESHOW FUNCTIONALITY
+        // ============================================================
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
@@ -1189,24 +1494,22 @@
             showSlide(currentSlide + 1);
         }
 
-        // Changes slide every 2 seconds
-        setInterval(nextSlide, 2000);
+        setInterval(nextSlide, 4000);
 
-        // Form Submission
+        // ============================================================
+        // FORM SUBMISSION
+        // ============================================================
         const contactForm = document.getElementById('contactForm');
 
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(contactForm);
-
-            // For demonstration, we'll just show an alert
             alert('Thank you for your message! We will get back to you soon.');
             contactForm.reset();
         });
 
-        // Animation on Scroll
+        // ============================================================
+        // SCROLL ANIMATIONS
+        // ============================================================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1215,13 +1518,12 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                    entry.target.style.animation = 'fadeInUp 0.7s ease-out forwards';
                 }
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.service-card, .project-card, .about-content > *').forEach(el => {
+        document.querySelectorAll('.service-card, .project-card, .portfolio-item, .about-content > *').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
         });
